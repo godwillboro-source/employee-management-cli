@@ -59,3 +59,16 @@ class Employee:
         employee.work_log = [tuple(item) for item in data.get("work_log", [])]
         employee.conduct_notes = [tuple(item) for item in data.get("conduct_notes", [])]
         return employee
+
+
+class Manager(Employee):
+   
+
+    def __init__(self, employee_id, name, department, salary):
+        super().__init__(employee_id, name, department, salary)
+        self.role_title = "Manager"
+
+    def to_dict(self):
+        data = super().to_dict()
+        data["type"] = "manager"
+        return data
