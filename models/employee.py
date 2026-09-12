@@ -58,3 +58,4 @@ class Employee:
         employee.role_title = data.get("role_title", "Staff")
         employee.work_log = [tuple(item) for item in data.get("work_log", [])]
         employee.conduct_notes = [tuple(item) for item in data.get("conduct_notes", [])]
+        return employee
