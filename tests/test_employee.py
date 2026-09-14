@@ -4,8 +4,9 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from utils.validators import not_empty, valid_email
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from utils.validators import not_empty, valid_email
 
 class TestValidators(unittest.TestCase):
     def test_not_empty(self):
