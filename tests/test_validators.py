@@ -4,7 +4,6 @@ import shutil
 import tempfile
 import unittest
 
-
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from models.employee import Employee, Manager, EmployeeDirectory
@@ -113,7 +112,6 @@ class TestEmployeeDirectory(unittest.TestCase):
 
         found = self.directory.find_by_id("ada@company.com")
         self.assertIsInstance(found, Manager)
-
 
 
 if __name__ == "__main__":
