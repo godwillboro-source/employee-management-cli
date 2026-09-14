@@ -4,7 +4,8 @@ import shutil
 import tempfile
 import unittest
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(_file_))))
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from models.employee import Employee, Manager, EmployeeDirectory
 
@@ -114,5 +115,6 @@ class TestEmployeeDirectory(unittest.TestCase):
         self.assertIsInstance(found, Manager)
 
 
-if _name_ == "_main_":
+
+if __name__ == "__main__":
     unittest.main()
