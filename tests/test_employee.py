@@ -2,7 +2,7 @@ import sys
 import os
 import unittest
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(_file_))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from utils.validators import not_empty, valid_email
 
@@ -19,5 +19,5 @@ class TestValidators(unittest.TestCase):
         self.assertFalse(valid_email("ada@companycom"))
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     unittest.main()
