@@ -1,12 +1,1 @@
-[
-    {
-        "type": "employee",
-        "employee_id": "kimani30@gmail.com",
-        "name": "kimani",
-        "department": "cleaning",
-        "role_title": "Staff",
-        "salary": 30000.0,
-        "work_log": [],
-        "conduct_notes": []
-    }
-]
+[]
