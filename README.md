@@ -36,3 +36,6 @@ Make sure you have the following installed on your system:
 
 # Running tests on terminal
 - pytest
+
+# Trello link
+https://trello.com/b/iZFoY0ff/group-4-project 
