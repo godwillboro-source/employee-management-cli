@@ -1,6 +1,6 @@
 # Employee Management CLI
 
-A lightweight, command-line interface app built in Python for managing employee records efficiently.
+A lightweight, command-line interface app built in Python for managing employee records efficiently. One can log in as an employer, manager or a normal staff member. The employer can change employee records, the manager can comment on conduct of an employee while the employee can log hours in the system.
 
 ---
 
