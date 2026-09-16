@@ -35,10 +35,52 @@
         "employee_id": null
     },
     {
+        "name": "ahmed",
+        "email": "ahmednur46@gmail.com",
+        "password_hash": "847230683fd377a7418199015b2645c8a17db80edb552b8c1c4cc78bf60c87b2",
+        "role": "employer",
+        "employee_id": null
+    },
+    {
+        "name": "ahmed",
+        "email": "ahmednur30@gmail.com",
+        "password_hash": "847230683fd377a7418199015b2645c8a17db80edb552b8c1c4cc78bf60c87b2",
+        "role": "employer",
+        "employee_id": null
+    },
+    {
+        "name": "ahmed",
+        "email": "ahmed49@gmail.com",
+        "password_hash": "4ccc14ba69f0040fd64a50ce688ecce4db39ac18abe52efb9b36429e0502788e",
+        "role": "employer",
+        "employee_id": null
+    },
+    {
         "name": "kimani",
-        "email": "kimani30@gmail.com",
+        "email": "kimani20@gmail.com",
+        "password_hash": "847230683fd377a7418199015b2645c8a17db80edb552b8c1c4cc78bf60c87b2",
+        "role": "manager",
+        "employee_id": "kimani20@gmail.com"
+    },
+    {
+        "name": "hamdi",
+        "email": "hamdi20@gmail.com",
         "password_hash": "bcb360123a93ca38ce0e6fe4bf2438abcb770869210ccb6a5ddbb16403836105",
         "role": "employee",
-        "employee_id": "kimani30@gmail.com"
+        "employee_id": "hamdi20@gmail.com"
+    },
+    {
+        "name": "ahmed",
+        "email": "ahmed38@gmail.com",
+        "password_hash": "c869d134e841d2f48dfbd57ffcf23dac12ee519ae0ab450dbee092d75671c956",
+        "role": "employer",
+        "employee_id": null
+    },
+    {
+        "name": "ahmed",
+        "email": "ahmed30@gmail.com",
+        "password_hash": "9a5339c2ac8c1031a0f99df7a45fa52dde150efc86eb2077b62967997ec2860d",
+        "role": "employer",
+        "employee_id": null
     }
 ]

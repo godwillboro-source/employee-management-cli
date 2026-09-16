@@ -1,7 +1,21 @@
+import argparse
+
+from colorama import Fore, Style, init as colorama_init
+
 from models.employee import Employee, EmployeeDirectory, Manager
 from utils.auth import AuthManager
 from utils.decorators import login_required, employer_required, manager_required
 from utils.validators import not_empty
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Employee Database Management System")
+    parser.add_argument(
+        "--no-color",
+        action="store_true",
+        help="Disable colored terminal output",
+    )
+    return parser.parse_args()
 
 
 class EmployeeManagementCLI:
@@ -11,7 +25,7 @@ class EmployeeManagementCLI:
         self.current_user = None
 
     def run(self):
-        print("EMPLOYEE DATABASE MANAGEMENT SYSTEM")
+        print(Fore.CYAN + "EMPLOYEE DATABASE MANAGEMENT SYSTEM" + Style.RESET_ALL)
 
         while True:
             if self.current_user is None:
@@ -266,6 +280,9 @@ class EmployeeManagementCLI:
 
 
 if __name__ == "__main__":
+    args = parse_args()
+    colorama_init(strip=args.no_color)
+
     try:
         EmployeeManagementCLI().run()
     except KeyboardInterrupt:

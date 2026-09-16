@@ -1,7 +1,27 @@
 [
     {
+        "type": "manager",
+        "employee_id": "kimani20@gmail.com",
+        "name": "kimani",
+        "department": "finance",
+        "role_title": "Manager",
+        "salary": 6000.0,
+        "work_log": [],
+        "conduct_notes": []
+    },
+    {
         "type": "employee",
-        "employee_id": "kimani30@gmail.com",
+        "employee_id": "hamdi20@gmail.com",
+        "name": "hamdi",
+        "department": "cleaning",
+        "role_title": "Staff",
+        "salary": 40000.0,
+        "work_log": [],
+        "conduct_notes": []
+    },
+    {
+        "type": "employee",
+        "employee_id": "576644628",
         "name": "kimani",
         "department": "cleaning",
         "role_title": "Staff",
