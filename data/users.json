@@ -1,14 +1,12 @@
 [
     {
-<<<<<<< HEAD
         "name": "k",
         "email": "k@gmail.com",
         "password_hash": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
         "role": "employer",
         "employee_id": null
-    }
-    
-=======
+    },
+    {
         "name": "Ahmed",
         "email": "ahmednurahmed49@gmail.com",
         "password_hash": "847230683fd377a7418199015b2645c8a17db80edb552b8c1c4cc78bf60c87b2",
@@ -92,5 +90,4 @@
         "role": "employer",
         "employee_id": null
     }
->>>>>>> ahmed
 ]

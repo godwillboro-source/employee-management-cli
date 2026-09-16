@@ -19,6 +19,7 @@ A lightweight, command-line interface app built in Python for managing employee 
 Make sure you have the following installed on your system:
 * Python 3.8 or higher
 * `pip` (Python package manager)
+* `pipenv` (virtual environment and dependency manager)
 
 ---
 
@@ -26,16 +27,16 @@ Make sure you have the following installed on your system:
 
 1. **Clone the repository:**
    https://github.com/godwillboro-source/employee-management-cli.git
-2. **Create a virtual python environment**
-   pipenv shell
-3. **Install dependencies**
-   pip install pytest
-4. **Run the code on your ternminal**
+2. **Install Pipenv**
+   pip install pipenv
+3. **Create the virtual environment and install dependencies**
+   pipenv install --dev
+4. **Run the code on your terminal**
    python3 main.py
 
 
 # Running tests on terminal
-- pytest
+- pipenv run pytest
 
 # Trello link
 https://trello.com/b/iZFoY0ff/group-4-project 
