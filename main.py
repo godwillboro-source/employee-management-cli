@@ -9,12 +9,36 @@ from utils.validators import not_empty
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Employee Database Management System")
+    parser = argparse.ArgumentParser(
+        prog="employee-cli",
+        description="Employee Database Management System",
+    )
     parser.add_argument(
         "--no-color",
         action="store_true",
         help="Disable colored terminal output",
     )
+
+    subparsers = parser.add_subparsers(dest="command")
+
+    p_add = subparsers.add_parser("add", help="Add a new employee")
+    p_add.add_argument("--name", required=True, help="Employee full name")
+    p_add.add_argument("--email", required=True, help="Login email, used as employee ID")
+    p_add.add_argument("--department", required=True, help="Employee's department")
+    p_add.add_argument("--salary", type=float, required=True, help="Starting salary")
+    p_add.add_argument("--manager", action="store_true", help="Create as a manager")
+
+    p_list = subparsers.add_parser("list", help="List employees")
+    p_list.add_argument("--department", help="Only show employees in this department")
+
+    p_fire = subparsers.add_parser("fire", help="Remove an employee")
+    p_fire.add_argument("employee_id", help="Email of the employee to remove")
+
+    p_log = subparsers.add_parser("log-hours", help="Log hours worked")
+    p_log.add_argument("employee_id", help="Email of the employee logging hours")
+    p_log.add_argument("date", help="Date worked, e.g. 2026-09-16")
+    p_log.add_argument("hours", type=float, help="Number of hours worked")
+
     return parser.parse_args()
 
 
@@ -132,9 +156,33 @@ class EmployeeManagementCLI:
         self.auth.register(name, email, password, role, employee_id=email)
         print("Employee added.")
 
+    def add_employee_args(self, args):
+        if not not_empty(args.name) or not not_empty(args.department):
+            print("Name and department are required.")
+            return
+
+        email = args.email.strip().lower()
+
+        if args.manager:
+            employee = Manager(email, args.name, args.department, args.salary)
+        else:
+            employee = Employee(email, args.name, args.department, args.salary)
+
+        self.directory.add_employee(employee)
+        print("Employee added.")
+
     @employer_required
     def fire_employee(self):
         employee_id = input("Employee ID (email) to remove: ").strip().lower()
+        if self.directory.find_by_id(employee_id) is None:
+            print("Employee not found.")
+            return
+        self.directory.remove_employee(employee_id)
+        self.auth.delete_user(employee_id)
+        print("Employee removed.")
+
+    def fire_employee_args(self, employee_id):
+        employee_id = employee_id.strip().lower()
         if self.directory.find_by_id(employee_id) is None:
             print("Employee not found.")
             return
@@ -270,6 +318,22 @@ class EmployeeManagementCLI:
         self.directory.update_employee(employee)
         print("Hours logged.")
 
+    def log_work_args(self, employee_id, date, hours):
+        employee_id = employee_id.strip().lower()
+        employee = self.directory.find_by_id(employee_id)
+        if employee is None:
+            print("Employee not found.")
+            return
+        employee.log_work(date, hours)
+        self.directory.update_employee(employee)
+        print("Hours logged.")
+
+    def list_employees(self, department=None):
+        if department:
+            self.directory_display(self.directory.get_by_department(department))
+        else:
+            self.directory_display(self.directory.get_all())
+
     @staticmethod
     def directory_display(employees):
         if not employees:
@@ -283,7 +347,18 @@ if __name__ == "__main__":
     args = parse_args()
     colorama_init(strip=args.no_color)
 
+    app = EmployeeManagementCLI()
+
     try:
-        EmployeeManagementCLI().run()
+        if args.command is None:
+            app.run()
+        elif args.command == "add":
+            app.add_employee_args(args)
+        elif args.command == "list":
+            app.list_employees(args.department)
+        elif args.command == "fire":
+            app.fire_employee_args(args.employee_id)
+        elif args.command == "log-hours":
+            app.log_work_args(args.employee_id, args.date, args.hours)
     except KeyboardInterrupt:
         print("\nClosed.")
